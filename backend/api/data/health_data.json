@@ -1,0 +1,23 @@
+{
+    "malaria": {
+      "symptoms": ["Fever", "Chills", "Sweating", "Headache"],
+      "prevention": ["Use mosquito nets", "Keep surroundings clean"],
+      "treatment": "Consult nearest health center, take prescribed medicines"
+    },
+    "dengue": {
+      "symptoms": ["High fever", "Joint pain", "Skin rash"],
+      "prevention": ["Avoid stagnant water", "Use mosquito repellents"],
+      "treatment": "Plenty of fluids, paracetamol, consult doctor"
+    },
+    "diabetes": {
+      "symptoms": ["Frequent urination", "Increased thirst", "Fatigue"],
+      "prevention": ["Healthy diet", "Regular exercise", "Maintain healthy weight"],
+      "treatment": "Insulin therapy, medication, lifestyle changes"
+    },
+    "covid": {
+      "symptoms": ["Fever", "Cough", "Loss of taste or smell"],
+      "prevention": ["Wear mask", "Social distancing", "Hand wash"],
+      "treatment": "Rest, hydration, consult doctor if severe"
+    }
+  }
+  
