@@ -113,13 +113,13 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Header */}
-      <header className="gov-header">
+ {/* Header */}
+ <header className="gov-header">
         <div className="header-content">
           <div className="header-left">
             <div className="gov-logo">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Emblem_of_India.svg/1200px-Emblem_of_India.svg.png" alt="Ashoka Emblem" />
-              <div>
+              <img src="Emblem_of_India.svg.webp" alt="Emblem of India" />
+              <div className="header-text"> {/* <-- This div is correctly structured */}
                 <h1>{t.title}</h1>
                 <p>{t.subtitle}</p>
               </div>

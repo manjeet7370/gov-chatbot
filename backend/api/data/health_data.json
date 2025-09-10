@@ -1,23 +1,93 @@
 {
     "malaria": {
-      "symptoms": ["Fever", "Chills", "Sweating", "Headache"],
-      "prevention": ["Use mosquito nets", "Keep surroundings clean"],
-      "treatment": "Consult nearest health center, take prescribed medicines"
+      "symptoms": {
+        "en": ["Fever", "Chills", "Sweating", "Headache", "Muscle pain", "Nausea", "Vomiting"],
+        "hi": ["बुखार", "कंपकंपी", "पसीना आना", "सिर दर्द", "मांसपेशियों में दर्द", "मतली", "उल्टी"]
+      },
+      "prevention": {
+        "en": ["Use mosquito nets", "Keep surroundings clean", "Use mosquito repellents", "Wear full sleeve clothes"],
+        "hi": ["मच्छरदानी का उपयोग करें", "आसपास की सफाई रखें", "मच्छर भगाने वाली दवा का प्रयोग करें", "पूरी बाजू के कपड़े पहनें"]
+      },
+      "treatment": {
+        "en": "Consult nearest health center, take prescribed antimalarial medicines",
+        "hi": "निकटतम स्वास्थ्य केंद्र से संपर्क करें, डॉक्टर द्वारा दी गई मलेरिया की दवाइयाँ लें"
+      },
+      "emergency": {
+        "en": "108",
+        "hi": "१०८"
+      }
     },
     "dengue": {
-      "symptoms": ["High fever", "Joint pain", "Skin rash"],
-      "prevention": ["Avoid stagnant water", "Use mosquito repellents"],
-      "treatment": "Plenty of fluids, paracetamol, consult doctor"
+      "symptoms": {
+        "en": ["High fever", "Joint pain", "Skin rash", "Severe headache", "Pain behind eyes", "Bleeding gums"],
+        "hi": ["तेज बुखार", "जोड़ों में दर्द", "त्वचा पर दाने", "भयंकर सिर दर्द", "आंखों के पीछे दर्द", "मसूड़ों से खून आना"]
+      },
+      "prevention": {
+        "en": ["Avoid stagnant water", "Use mosquito repellents", "Cover water containers", "Clean coolers weekly"],
+        "hi": ["जमीन पर पानी इकट्ठा न होने दें", "मच्छर भगाने वाली दवा का उपयोग करें", "पानी के बर्तन ढककर रखें", "कूलर साप्ताहिक साफ करें"]
+      },
+      "treatment": {
+        "en": "Plenty of fluids, paracetamol, platelet monitoring, consult doctor",
+        "hi": "पर्याप्त तरल पदार्थ लें, पैरासिटामोल लें, प्लेटलेट की जांच कराते रहें, डॉक्टर से परामर्श करें"
+      },
+      "emergency": {
+        "en": "108",
+        "hi": "१०८"
+      }
     },
     "diabetes": {
-      "symptoms": ["Frequent urination", "Increased thirst", "Fatigue"],
-      "prevention": ["Healthy diet", "Regular exercise", "Maintain healthy weight"],
-      "treatment": "Insulin therapy, medication, lifestyle changes"
+      "symptoms": {
+        "en": ["Frequent urination", "Increased thirst", "Fatigue", "Blurred vision", "Slow healing wounds", "Unexplained weight loss"],
+        "hi": ["बार-बार पेशाब आना", "अत्यधिक प्यास लगना", "थकान", "धुंधला दिखाई देना", "घाव का देर से भरना", "अनचाहा वजन कम होना"]
+      },
+      "prevention": {
+        "en": ["Healthy diet", "Regular exercise", "Maintain healthy weight", "Regular check-ups", "Avoid smoking"],
+        "hi": ["स्वस्थ आहार", "नियमित व्यायाम", "स्वस्थ वजन बनाए रखें", "नियमित जांच कराएं", "धूम्रपान से बचें"]
+      },
+      "treatment": {
+        "en": "Insulin therapy, medication, lifestyle changes, regular monitoring",
+        "hi": "इंसुलिन थेरेपी, दवाइयाँ, जीवनशैली में बदलाव, नियमित जांच"
+      },
+      "emergency": {
+        "en": "108",
+        "hi": "१०८"
+      }
     },
     "covid": {
-      "symptoms": ["Fever", "Cough", "Loss of taste or smell"],
-      "prevention": ["Wear mask", "Social distancing", "Hand wash"],
-      "treatment": "Rest, hydration, consult doctor if severe"
+      "symptoms": {
+        "en": ["Fever", "Cough", "Loss of taste or smell", "Breathing difficulty", "Body ache", "Fatigue"],
+        "hi": ["बुखार", "खांसी", "स्वाद या गंध का चले जाना", "सांस लेने में कठिनाई", "शरीर में दर्द", "थकान"]
+      },
+      "prevention": {
+        "en": ["Wear mask", "Social distancing", "Hand wash", "Vaccination", "Avoid crowded places"],
+        "hi": ["मास्क पहनें", "सोशल डिस्टेंसिंग रखें", "हाथ धोएं", "टीकाकरण कराएं", "भीड़भाड़ वाली जगहों से बचें"]
+      },
+      "treatment": {
+        "en": "Rest, hydration, isolation, oxygen monitoring, consult doctor if severe",
+        "hi": "आराम करें, पानी पिएं, आइसोलेशन में रहें, ऑक्सीजन जांचें, गंभीर होने पर डॉक्टर से मिलें"
+      },
+      "emergency": {
+        "en": "1075",
+        "hi": "१०७५"
+      }
+    },
+    "tuberculosis": {
+      "symptoms": {
+        "en": ["Persistent cough", "Blood in sputum", "Night sweats", "Weight loss", "Chest pain", "Fever"],
+        "hi": ["लगातार खांसी", "बलगम में खून आना", "रात में पसीना आना", "वजन कम होना", "सीने में दर्द", "बुखार"]
+      },
+      "prevention": {
+        "en": ["BCG vaccination", "Good ventilation", "Cover mouth when coughing", "Avoid close contact with TB patients"],
+        "hi": ["बीसीजी टीकाकरण", "अच्छा वेंटिलेशन रखें", "खांसते समय मुंह ढकें", "टीबी रोगियों के पास न जाएं"]
+      },
+      "treatment": {
+        "en": "DOTS therapy, 6-month medication course, regular follow-ups",
+        "hi": "डॉट्स थेरेपी, 6 महीने की दवा, नियमित जांच"
+      },
+      "emergency": {
+        "en": "108",
+        "hi": "१०८"
+      }
     }
   }
   
