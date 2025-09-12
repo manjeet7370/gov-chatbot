@@ -1,0 +1,250 @@
+/* src/styles/chat.css
+   Government-style chat UI
+   Works with both patterns:
+   - message + user-message/bot-message (your App.tsx)
+   - message.user / message.bot (optional Chat.tsx)
+*/
+
+:root {
+  --gov-blue: #003366;
+  --gov-blue-2: #004080;
+  --gov-saffron: #ff6b35;
+  --gov-green: #138808;
+  --gov-white: #ffffff;
+  --border: #e0e0e0;
+  --text: #222;
+  --muted: #666;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Optional full chat card if you use a standalone Chat component */
+.chat-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--gov-white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  min-height: 60vh;
+}
+
+/* Header variant (if used) */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: linear-gradient(90deg, var(--gov-blue), var(--gov-blue-2));
+  color: #fff;
+  border-bottom: 3px solid var(--gov-green);
+}
+.chat-title { display: flex; align-items: center; gap: 10px; }
+.chat-emblem { height: 44px; filter: brightness(0) invert(1); }
+.chat-header h3 { margin: 0; font-size: 18px; font-weight: 800; }
+.chat-header .sub { margin: 0; font-size: 12px; opacity: 0.95; }
+
+/* Quick actions bar (adds qa-btn style; your App.css already styles quick-actions) */
+.qa-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--gov-blue);
+  background: #fff;
+  color: var(--gov-blue);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+}
+.qa-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.qa-btn.emergency { border-color: var(--gov-saffron); color: var(--gov-saffron); }
+.qa-btn.emergency:hover { background: var(--gov-saffron); color: #fff; }
+
+/* Messages container (your App.tsx uses .chat-messages) */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #fafbfc;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Welcome (both class names supported) */
+.welcome-message,
+.welcome {
+  text-align: center;
+  color: var(--muted);
+  padding: 16px 10px;
+}
+
+/* Base message item */
+.message {
+  margin-bottom: 14px;
+  max-width: 85%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header inside message (used in your App.tsx) */
+.message-header,
+.msg-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* Bubble content */
+.message-text,
+.msg-text {
+  padding: 12px 16px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+  line-height: 1.45;
+  position: relative;
+  word-break: break-word;
+}
+
+/* Variant A: your App.tsx uses user-message / bot-message wrappers */
+.user-message .message-text {
+  background: var(--gov-blue);
+  color: #fff;
+  border-bottom-right-radius: 6px;
+}
+.user-message .message-text::after {
+  content: "";
+  position: absolute;
+  right: -8px; bottom: 10px;
+  border-width: 8px 0 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--gov-blue);
+}
+.bot-message .message-text {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 6px;
+}
+.bot-message .message-text::after {
+  content: "";
+  position: absolute;
+  left: -8px; bottom: 10px;
+  border-width: 8px 8px 8px 0;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+
+/* Variant B: if you use message.user / message.bot (supported too) */
+.message.user { align-self: flex-end; text-align: right; }
+.message.user .msg-text {
+  background: var(--gov-blue);
+  color: #fff;
+  border-bottom-right-radius: 6px;
+}
+.message.user .msg-text::after {
+  content: "";
+  position: absolute;
+  right: -8px; bottom: 10px;
+  border-width: 8px 0 8px 8px;
+  border-style: solid;
+  border-color: transparent transparent transparent var(--gov-blue);
+}
+.message.bot { align-self: flex-start; text-align: left; }
+.message.bot .msg-text {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 6px;
+}
+.message.bot .msg-text::after {
+  content: "";
+  position: absolute;
+  left: -8px; bottom: 10px;
+  border-width: 8px 8px 8px 0;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+
+/* Typing indicator (your App.tsx uses typing-indicator with spans) */
+.typing-indicator,
+.typing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0 12px 0;
+}
+.typing-indicator span,
+.typing .dot {
+  width: 8px; height: 8px;
+  background: var(--gov-blue);
+  border-radius: 50%;
+  animation: blink 1s infinite ease-in-out;
+}
+.typing-indicator span:nth-child(2),
+.typing .dot:nth-child(2) { animation-delay: .15s; }
+.typing-indicator span:nth-child(3),
+.typing .dot:nth-child(3) { animation-delay: .3s; }
+@keyframes blink {
+  0%, 60%, 100% { transform: scale(.85); opacity: .35; }
+  30% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Input row (works with your App.tsx classes) */
+.input-area,
+.input-row {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #fff;
+  border-top: 1px solid var(--border);
+  align-items: center;
+}
+.message-input,
+.chat-input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  outline: none;
+  font-size: 14px;
+  background: #fff;
+}
+.message-input:focus,
+.chat-input:focus {
+  border-color: var(--gov-blue);
+  box-shadow: 0 0 0 3px rgba(0,51,102,0.12);
+}
+.send-button,
+.send-btn {
+  background: var(--gov-saffron);
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  min-width: 90px;
+  transition: background .2s ease, transform .2s ease;
+}
+.send-button:disabled,
+.send-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.send-button:hover:not(:disabled),
+.send-btn:hover:not(:disabled) { transform: translateY(-1px); }
+
+/* Scrollbar */
+.chat-messages::-webkit-scrollbar { width: 10px; height: 10px; }
+.chat-messages::-webkit-scrollbar-thumb { background: #c7cfdb; border-radius: 8px; }
+.chat-messages::-webkit-scrollbar-thumb:hover { background: #aeb8c7; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chat-panel { min-height: 55vh; border-radius: 10px; }
+  .message { max-width: 94%; }
+  .chat-header { padding: 10px; }
+  .input-area, .input-row { padding: 10px; }
+  .send-button, .send-btn { min-width: 76px; padding: 10px 12px; }
+}
