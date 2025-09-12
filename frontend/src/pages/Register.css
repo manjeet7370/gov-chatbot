@@ -1,0 +1,38 @@
+.register-page {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 400px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.register-page h2 {
+  margin-bottom: 15px;
+  color: #0c2340;
+}
+
+.register-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register-page input {
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.register-page button {
+  padding: 10px;
+  background: #2a9d8f;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.register-page button:hover {
+  background: #21867a;
+}

@@ -5,6 +5,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework import status
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # =====================
 # ✅ Health check API
@@ -38,7 +39,7 @@ class RootView(APIView):
 
 
 # =====================
-# ✅ Register new user
+# ✅ Register new user (returns JWT too)
 # =====================
 class RegisterView(APIView):
     permission_classes = [AllowAny]
@@ -61,12 +62,21 @@ class RegisterView(APIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        # create user (Django automatically hashes the password)
+        # create user (Django hashes the password)
         user = User.objects.create_user(username=username, email=email, password=password)
 
+        # generate JWT tokens (Register ke turant baad login feel)
+        refresh = RefreshToken.for_user(user)
+        access_token = str(refresh.access_token)
+
         return Response(
-            {"message": "User registered successfully ✅", "username": user.username},
-            status=status.HTTP_201_CREATED
+            {
+                "message": "User registered successfully ✅",
+                "username": user.username,
+                "access": access_token,
+                "refresh": str(refresh),
+            },
+            status=status.HTTP_201_CREATED,
         )
 
 
@@ -110,7 +120,7 @@ class ChatView(APIView):
         bot_reply = "❌ Sorry, I don't have information about that."
 
         for disease, info in health_data.items():
-            if disease in user_msg:
+            if disease.lower() in user_msg:
                 symptoms = info["symptoms"].get(lang, info["symptoms"]["en"])
                 prevention = info["prevention"].get(lang, info["prevention"]["en"])
                 treatment = info["treatment"].get(lang, info["treatment"]["en"])
