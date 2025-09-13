@@ -66,7 +66,7 @@ Copy code
 cd ../frontend
 npm install
 npm start
-Frontend will run at 👉 http://localhost:3000
+Frontend will run at 👉 http://localhost:5173
 
 🔗 API Endpoints
 GET /api/health/ → Returns { "status": "healthy" }
@@ -75,6 +75,7 @@ POST /api/chat/ → Accepts { "message": "Hello" } and returns chatbot response
 
 🧑‍💻 Team
 Manjeet Kumar
-
-[Add teammates if any]
+Nikhil Gupta
+Anshum Awasthi
+Mayank Pal
 
